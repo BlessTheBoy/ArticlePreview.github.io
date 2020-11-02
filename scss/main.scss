@@ -1,3 +1,62 @@
+@import 'config';
+
+$VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+$DesaturatedDarkBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+$LightGrayishBlue: hsl(210, 46%, 95%);
+
 body{
-    background-color: yellow;
+    background-color: $LightGrayishBlue;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+
+    .container{
+        width: 80%;
+        max-width: 400px;
+        color: $DesaturatedDarkBlue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 4rem auto;
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
+
+        &_image{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        
+        &_text{
+            .main-texts{
+                padding: 1.5rem;
+                h1{
+                    font-size: .95rem;
+                    font-weight: 700;
+                    margin-bottom: .7rem;
+                    color: $VeryDarkGrayishBlue;
+                }
+                p{
+                    font-size: .77rem;
+                }
+            }
+
+            .links{
+                .profile{
+                    display: none;
+                    padding: .5rem 1.5rem;
+                }
+                .share{
+                    background-color: $VeryDarkGrayishBlue;
+                    padding: 1rem 1.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+        }
+    }
 }
