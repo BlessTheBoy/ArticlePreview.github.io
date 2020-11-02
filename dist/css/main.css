@@ -9,16 +9,14 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "Alliance";
-  src: url("../Alliance.ttf") format("truetype");
-}
-
 body {
   background-color: #ecf2f8;
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  height: 100vh;
+}
+
+body .main-container {
+  min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -198,8 +196,7 @@ body .container_text .links .share .share-button svg {
 }
 
 body .attribution {
-  position: absolute;
-  bottom: .5rem;
+  margin: 1rem;
   color: #9eafc2;
 }
 
@@ -211,8 +208,15 @@ body .attribution a:hover {
   color: #48556a;
 }
 
-body .attribution a.BlessTheBoy {
-  font-family: Alliance;
+body .attribution a.BlessTheBoy svg {
+  fill: #6d7f97;
+  width: 60px;
+  margin: 0px auto;
+  margin-bottom: -5px;
+}
+
+body .attribution a.BlessTheBoy svg:hover {
+  fill: #48556a;
 }
 
 @media screen and (min-width: 750px) {
