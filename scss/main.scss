@@ -1,5 +1,10 @@
 @import 'config';
 
+@font-face{
+    font-family: "Alliance";
+    src: url("../Alliance.ttf") format("truetype");
+}
+
 $VeryDarkGrayishBlue: hsl(217, 19%, 35%);
 $DesaturatedDarkBlue: hsl(214, 17%, 51%);
 $GrayishBlue: hsl(212, 23%, 69%);
@@ -9,6 +14,14 @@ body{
     background-color: $LightGrayishBlue;
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .desktop{
+        display: none;
+    }
 
     .container{
         width: 80%;
@@ -43,6 +56,10 @@ body{
                 }
             }
 
+            .zero-opaque{
+                opacity: 0;
+            }
+
             .links{
                 position: relative;
                 .share-button{
@@ -59,7 +76,9 @@ body{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    transition: all ease-in-out .5s;
+                    transition: all ease-in-out 1s;
+                    height: 66px;
+                    opacity: 1;
 
                     &-cont{
                         display: flex;
@@ -90,12 +109,14 @@ body{
                     }
                 }
                 .share{                
-                    transition: all ease-in-out .5s;
-                    display: flex;
+                    transition: all ease-in-out 1s;
+                    display: none;
                     background-color: $VeryDarkGrayishBlue;
                     padding: .8rem 1.5rem;
                     justify-content: space-between;
                     align-items: center;
+                    opacity: 1;
+                    height: 66px;
 
                     &-links{
                         display: flex;
@@ -111,18 +132,44 @@ body{
                                 transform: scale(.9);
                             }
                         }
-                    }                    
+                    }
+                    .share-button {
+                        background-color: $DesaturatedDarkBlue;
+                        svg{
+                            fill: white;
+                        }      
+                    }            
                 }
             }
         }
     }
 
+    .attribution{
+        position: absolute;
+        bottom: .5rem;
+        color: $GrayishBlue;
+        a{
+            color: $DesaturatedDarkBlue;
+            &:hover{
+                color: $VeryDarkGrayishBlue;
+            }
+            &.BlessTheBoy{
+                font-family: Alliance;
+            }
+        }
+    }
+
     @media screen and (min-width: 750px) {
+        .desktop{
+            display: none;
+            position: absolute;
+        }
         .container{
             flex-direction: row;
             max-width: 750px;            
             padding: 0;
             position: relative;
+            overflow: visible;
             &_image{
                 height: 240px;
                 min-width: 200px;
@@ -139,10 +186,39 @@ body{
             &_text{
                 padding-right: 1rem;
                 .links{
-                    .share{
-                        .share-button{
-                            display: none;
+                    position: relative;
+                    .profile{
+                        #share{
+                            position: relative;
+                            .desktop{
+                                position: absolute;
+                                bottom: 140%;
+                                left: 0;
+                                transform: translateX(calc(-50% + 10px));
+                                height: initial;
+                                padding: .5rem 1rem;
+                                border-radius: 5px;
+                                &::after{
+                                    content: "";
+                                    width: 0;
+                                    height: 0;
+                                    border-left: 5px solid transparent;
+                                    border-right: 5px solid transparent;
+                                    border-top: 10px solid $VeryDarkGrayishBlue;
+                                    position: absolute;
+                                    top: 100%;
+                                    left: 50%;
+                                }
+                                .share-links{
+                                    span{
+                                        cursor: initial;
+                                    }
+                                }
+                            }
                         }
+                    }
+                    .share{
+                        display: none;
                     }
                 }
             }
