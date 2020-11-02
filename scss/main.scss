@@ -24,7 +24,6 @@ body{
         background: white;
 
         &_image{
-            width: 100%;
             img{
                 width: 100%;
             }
@@ -34,7 +33,7 @@ body{
             .main-texts{
                 padding: 1.5rem;
                 h1{
-                    font-size: .95rem;
+                    font-size: 1rem;
                     font-weight: 700;
                     margin-bottom: .7rem;
                     color: $VeryDarkGrayishBlue;
@@ -45,16 +44,106 @@ body{
             }
 
             .links{
-                .profile{
-                    display: none;
-                    padding: .5rem 1.5rem;
+                position: relative;
+                .share-button{
+                    cursor: pointer;
+                    background-color: $LightGrayishBlue;
+                    padding: 3px 7px;
+                    border-radius: 50%;
+                    svg{
+                        fill: white;
+                    }
                 }
-                .share{
-                    background-color: $VeryDarkGrayishBlue;
-                    padding: 1rem 1.5rem;
+                .profile{                    
+                    padding: .8rem 1.5rem;
                     display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    transition: all ease-in-out .5s;
+
+                    &-cont{
+                        display: flex;
+                        align-items: center;
+                        
+                        .image_cont{
+                            width: 35px;
+                            img{
+                                width: 100%;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .text_cont{
+                            margin-left: .5rem;
+                            h4{
+                                color: $VeryDarkGrayishBlue;
+                                font-size: .8rem;
+                                font-weight: 700;
+                            }
+                            p{
+                                font-size: .7rem;
+                            }
+                        }
+                    }
+                    .share-button svg{
+                        fill: $VeryDarkGrayishBlue;
+                    }
+                }
+                .share{                
+                    transition: all ease-in-out .5s;
+                    display: flex;
+                    background-color: $VeryDarkGrayishBlue;
+                    padding: .8rem 1.5rem;
                     justify-content: space-between;
                     align-items: center;
+
+                    &-links{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        span{
+                            margin-right: 15px;
+                        }
+                        a{
+                            margin-right: 12px;
+                            svg{
+                                transform: scale(.9);
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .container{
+            flex-direction: row;
+            max-width: 750px;            
+            padding: 0;
+            position: relative;
+            &_image{
+                height: 240px;
+                min-width: 200px;
+                flex-basis: 60%;
+                margin: 0;
+                padding: 0;
+                background-image: url('../images/drawers.jpg');
+                background-size: cover;
+                img{
+                    height: 100%;
+                    display: none;
+                }
+            }
+            &_text{
+                padding-right: 1rem;
+                .links{
+                    .share{
+                        .share-button{
+                            display: none;
+                        }
+                    }
                 }
             }
         }
